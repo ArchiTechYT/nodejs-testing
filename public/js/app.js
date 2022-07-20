@@ -7,11 +7,8 @@ function myFetch(url) {
   fetch(url).then((res) => {
     res.json().then((data) => {
       if (data.error) {
-        // console.log(data.error);
         messageOne.textContent = data.error;
       } else {
-        // console.log(data.location);
-        // console.log(data.forecastData);
         messageOne.textContent = data.location.country;
         messageTwo.textContent = data.location.region;
         messageThree.textContent = data.current.observation_time;
