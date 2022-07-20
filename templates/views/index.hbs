@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/style.css" />
+    <!--script src="/js/app.js"></script-->
+
+    
+  </head>
+  <body>
+  <div class = "main-content">
+
+    {{>header}}
+    <p> Use this app to search the weather! </p>
+
+    <form>
+        <!--input placeholder="location"-->
+        <input id="lat" placeholder="latitude">
+        <input id="long" placeholder="longitude">
+        <button>Search</button>
+       </form>
+
+
+       <p id = "messageOne"></p>
+       <p id = "messageTwo"></p>  
+       <p id = "messageThree"></p>  
+       <p id = "messageFour"></p>  
+  </div>
+    {{>footer}}
+    <script src="./js/app.js" type="text/javascript"></script>   
+    <!-- should treat the file path as index.hbs is inside the public folder.. -->
+    <!-- app.js should be loaded after all the div forms are initiated in order to to event listener-->
+  </body>
+</html>
