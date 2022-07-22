@@ -57,14 +57,6 @@ app.get("/weather", (req, res) => {
       location: req.query.address,
     });
   });
-
-  // res.send({
-  //   temperature: "15",
-  //   location: "Philadelphia",
-  //   address: req.query.address,
-  //   latitude: req.query.latitude,
-  //   longitude: req.query.longitude,
-  // });
 });
 
 app.get("/product", (req, res) => {
