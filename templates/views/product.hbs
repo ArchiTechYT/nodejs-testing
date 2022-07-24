@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    {{>header}}
+    <p>{{message}}</p>
+    
+    <form>
+      <select id="houses" style="width: 200px; height: 30px;">
+        <option value="studio">Studio</option>
+        <option value="onebed">One Bedroom</option>
+        <option value="twobed">Two Bedroom</option>
+      </select>
+      <button>Upload</button>
+    </form>
+
+    <canvas id="model-viewer" width="600px" height="300px"></canvas>
+
+
+    {{>footer}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
+
+    <!--script src="./js/libs/three.js" type="text/javascript"></script--> 
+    <script src="./js/libs/OBJLoader.js" type="text/javascript"></script> 
+    <script src="./js/libs/OrbitControls.js" type="text/javascript"></script> 
+    <script src="/js/uploader.js" type="text/javascript"></script> 
+  </body>
+</html>
+
+
+<!-- 
+
+  NOTE : BUGs TO FIX 
+    (1) Figure out how to use webpack to manage js libraries w/ node.js
+    (2) The libs here are just tmp fix to push things to front end ASAP
+    (3) Find a way to reduce the "Uncaught syntax" while using hbs 
+    (4) Learn a better way to structure the files
+    
+-->

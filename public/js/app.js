@@ -1,6 +1,8 @@
 // const forecast = require("../../src/utils/forecast");
 // Q : is the client app supposed to call backend js??
 
+// import * as THREE from "three";
+
 console.log("Client side javascript is loaded!");
 
 function myFetch(url) {
@@ -11,21 +13,21 @@ function myFetch(url) {
       } else {
         messageOne.textContent = data.location.country;
         messageTwo.textContent = data.location.region;
-        messageThree.textContent = data.current.observation_time;
-        messageFour.textContent = data.current.temperature;
+        // messageThree.textContent = data.current.observation_time;
+        // messageFour.textContent = data.current.temperature;
       }
     });
   });
 }
 
-const weatherForm = document.querySelector("form");
+const weatherForm = document.querySelector("#weather-form");
 const latElem = document.querySelector("#lat");
 const longElem = document.querySelector("#long");
 
 const messageOne = document.querySelector("#messageOne");
 const messageTwo = document.querySelector("#messageTwo");
-const messageThree = document.querySelector("#messageThree");
-const messageFour = document.querySelector("#messageFour");
+// const messageThree = document.querySelector("#messageThree");
+// const messageFour = document.querySelector("#messageFour");
 
 weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();

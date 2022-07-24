@@ -47,7 +47,6 @@ app.get("/weather", (req, res) => {
       error: "You must provide an geo coordiante...",
     });
   }
-
   forecast(37.83, -122.42, (error, forecastData) => {
     if (error) {
       return res.send({ error }); // use return then you dont need else
@@ -60,15 +59,10 @@ app.get("/weather", (req, res) => {
 });
 
 app.get("/product", (req, res) => {
-  if (!req.query.search) {
-    return res.send({
-      error: "You must provide a search term...",
-    });
-  }
-
-  console.log(req.query);
-  res.send({
-    products: [],
+  res.render("product", {
+    message: "Please upload your co-housing model...",
+    title: "Product",
+    name: "Yi-Ju Tseng",
   });
 });
 
@@ -91,35 +85,3 @@ app.get("*", (req, res) => {
 app.listen(3000, () => {
   console.log("Server is up on port 3000");
 });
-
-// (-33.92, 151.03) = Sydney
-// Calling forecast-app here
-
-// const lat = process.argv[2];
-// const long = process.argv[3];
-// let wOutput = "";
-// forecast(lat, long, (error, forecastData) => {
-//   wOutput = forecastData;
-// });
-
-// app.get("/weather", (req, res) => {
-//   res.send(wOutput);
-// });
-
-///////////////////////////////////////////
-// NodeJS example which works...
-// const hostname = "127.0.0.1";
-// const port = 3000;
-// const http = require("http");
-// const userInputs = process.argv[2];
-
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader("Content-Type", "text/plain");
-//   res.end(userInputs);
-//   // why res.send doesn't work??
-// });
-
-// server.listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
