@@ -4,13 +4,14 @@
   </head>
   <body>
     {{>header}}
-    <p>{{message}}</p>
+    <p>Please select an apartment template</p>
     
-    <form>
-      <select id="houses" style="width: 200px; height: 30px;">
-        <option value="studio">Studio</option>
-        <option value="onebed">One Bedroom</option>
-        <option value="twobed">Two Bedroom</option>
+    <form id = "upload-form">
+      <select id="template" style="width: 200px; height: 30px;">
+        <option value="aptLoft.obj">Apartment Loft</option>
+        <option value="oneBedroom.obj">One Bedroom</option>
+        <option value="fourBedroom.obj">Four Bedroom</option>
+        <option value="fiveBedroom.obj">Five Bedroom</option>
       </select>
       <button>Upload</button>
     </form>
@@ -36,5 +37,5 @@
     (2) The libs here are just tmp fix to push things to front end ASAP
     (3) Find a way to reduce the "Uncaught syntax" while using hbs 
     (4) Learn a better way to structure the files
-    
+
 -->

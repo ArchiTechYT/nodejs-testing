@@ -11,7 +11,7 @@ function myFetch(url) {
       if (data.error) {
         messageOne.textContent = data.error;
       } else {
-        messageOne.textContent = data.location.country;
+        // messageOne.textContent = data.location.country;
         messageTwo.textContent = data.location.region;
         // messageThree.textContent = data.current.observation_time;
         // messageFour.textContent = data.current.temperature;
@@ -20,11 +20,13 @@ function myFetch(url) {
   });
 }
 
+// if you are fetching your own website : fetch(http://localhost/subpage) -> fetch(/subpage)
+
 const weatherForm = document.querySelector("#weather-form");
 const latElem = document.querySelector("#lat");
 const longElem = document.querySelector("#long");
 
-const messageOne = document.querySelector("#messageOne");
+// const messageOne = document.querySelector("#messageOne");
 const messageTwo = document.querySelector("#messageTwo");
 // const messageThree = document.querySelector("#messageThree");
 // const messageFour = document.querySelector("#messageFour");

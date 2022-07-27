@@ -1,5 +1,3 @@
-console.log("calling uploader.js!");
-
 // Canvas
 const canvas = document.querySelector("#model-viewer");
 
@@ -15,15 +13,6 @@ scene.add(light);
 
 const amLight = new THREE.AmbientLight(0x404040); // soft white light
 scene.add(amLight);
-
-// Geometry
-// var geometry = new THREE.BoxGeometry();
-// var material = new THREE.MeshStandardMaterial();
-// material.metalness = 1;
-// material.roughness = 1;
-// material.color = new THREE.Color(0x999999);
-// var box = new THREE.Mesh(geometry, material);
-// scene.add(box);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 100);
@@ -42,23 +31,49 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 // Controls
 const controls = new THREE.OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.enablePan = true;
+controls.addEventListener("change", (event) => {
+  console.log(controls.object.position);
+});
+
+// model-selector
+const uploadForm = document.getElementById("upload-form");
+console.log(uploadForm);
+
+// ObjUploader("model/site.obj");
+
+uploadForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let objName = "model/";
+  var select = document.getElementById("template");
+  var option = select.options[select.selectedIndex];
+
+  var value = select.options[select.selectedIndex].value;
+  objName += value;
+
+  ObjUploader(objName);
+});
 
 // OBJ-Loader
-const loader = new THREE.OBJLoader();
+function ObjUploader(objName) {
+  const loader = new THREE.OBJLoader();
 
-loader.load(
-  "model/aptLoft.obj",
-  function (object) {
-    object.position.set(5, 0, 2.5); // maybe add axis helper?
-    scene.add(object);
-  },
-  function (xhr) {
-    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-  },
-  function (error) {
-    console.log("An error happened");
-  }
-);
+  loader.load(
+    objName,
+    function (object) {
+      object.position.set(5, 0, 2.5); // maybe add axis helper?
+      scene.add(object);
+    },
+    function (xhr) {
+      console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    },
+    function (error) {
+      console.log("An error happened");
+    }
+  );
+}
 
 // Animate
 function animate() {
